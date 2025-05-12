@@ -1,10 +1,30 @@
 @import "tailwindcss";
 
+/* 
+  CSS değişkenlerini tanımla
+  - Açık tema için varsayılan renkler
+  - background: Beyaz arka plan
+  - foreground: Koyu gri metin rengi
+*/
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* 
+  Koyu tema için değişkenler
+  - dark class'ı eklendiğinde bu değişkenler kullanılır
+*/
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* 
+  Tema değişkenlerini tanımla
+  - Renk ve font değişkenlerini CSS değişkenlerine bağla
+  - Geist fontlarını kullan
+*/
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,15 +32,41 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* 
+  Temel sayfa stilleri
+  - Arka plan ve metin rengini CSS değişkenlerinden al
+  - Varsayılan font ailesini tanımla
+*/
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode geçiş animasyonları */
+.dark body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Dark mode için özel stiller */
+.dark .dark\:invert {
+  filter: invert(1);
+}
+
+.dark .dark\:bg-gray-800 {
+  background-color: #1f2937;
+}
+
+.dark .dark\:hover\:bg-gray-700:hover {
+  background-color: #374151;
+}
+
+.dark .dark\:text-yellow-500 {
+  color: #eab308;
+}
+
+.dark .dark\:border-white\/\[\.145\] {
+  border-color: rgba(255, 255, 255, 0.145);
 }

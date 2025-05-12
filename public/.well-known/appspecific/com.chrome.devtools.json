@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "devtools": {
+    "enabled": true,
+    "features": {
+      "performance": true,
+      "network": true,
+      "console": true
+    }
+  }
+} 

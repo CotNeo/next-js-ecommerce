@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js E-Ticaret Projesi
 
-## Getting Started
+Bu proje, modern ve kullanıcı dostu bir e-ticaret platformu olarak tasarlanmıştır. Next.js, React ve Tailwind CSS kullanılarak geliştirilmiştir.
 
-First, run the development server:
+## 🚀 Özellikler
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Kullanıcı Yönetimi**
+  - Kayıt ve giriş işlemleri
+  - Kullanıcı profili yönetimi
+  - Rol tabanlı yetkilendirme (Müşteri/Satıcı)
+
+- **Ürün Yönetimi**
+  - Ürün listeleme ve detay sayfaları
+  - Kategori bazlı filtreleme
+  - Arama fonksiyonu
+  - Ürün resimleri ve açıklamaları
+
+- **Sepet İşlemleri**
+  - Sepete ürün ekleme/çıkarma
+  - Ürün miktarı güncelleme
+  - Sepet toplamı hesaplama
+  - LocalStorage ile sepet verilerini saklama
+
+- **Ödeme İşlemleri**
+  - Stripe entegrasyonu
+  - Güvenli ödeme altyapısı
+  - Sipariş takibi
+  - Webhook ile ödeme durumu güncelleme
+
+- **Tasarım**
+  - Responsive tasarım
+  - Karanlık/Aydınlık tema desteği
+  - Modern ve kullanıcı dostu arayüz
+  - Tailwind CSS ile özelleştirilebilir bileşenler
+
+## 🛠️ Teknolojiler
+
+- **Frontend**
+  - Next.js 14
+  - React 18
+  - Tailwind CSS
+  - TypeScript
+  - Heroicons
+
+- **Backend**
+  - Next.js API Routes
+  - Stripe API
+  - LocalStorage
+
+- **Geliştirme Araçları**
+  - ESLint
+  - Prettier
+  - TypeScript
+  - Git
+
+## 📦 Kurulum
+
+1. Projeyi klonlayın:
+   ```bash
+   git clone https://github.com/CotNeo/next-js-ecommerce.git
+   cd next-js-ecommerce
+   ```
+
+2. Bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
+
+3. Environment değişkenlerini ayarlayın:
+   ```env
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+   ```
+
+4. Geliştirme sunucusunu başlatın:
+   ```bash
+   npm run dev
+   ```
+
+## 🎯 Proje Yapısı
+
+```
+src/
+├── app/
+│   ├── components/     # UI bileşenleri
+│   ├── context/       # Context API'ler
+│   ├── types/         # TypeScript tipleri
+│   ├── utils/         # Yardımcı fonksiyonlar
+│   ├── api/           # API rotaları
+│   └── pages/         # Sayfa bileşenleri
+├── public/            # Statik dosyalar
+└── styles/           # Global stiller
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔄 Geliştirme Durumu
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Tamamlanan Özellikler
+- [x] Kullanıcı arayüzü tasarımı
+- [x] Sepet işlemleri
+- [x] Ödeme sistemi entegrasyonu
+- [x] Responsive tasarım
+- [x] Tema desteği
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Devam Eden Özellikler
+- [ ] Ürün yönetim paneli
+- [ ] Sipariş takip sistemi
+- [ ] Çoklu dil desteği
+- [ ] SEO optimizasyonu
 
-## Learn More
+### Planlanan Özellikler
+- [ ] Çoklu ödeme yöntemi
+- [ ] Gelişmiş arama ve filtreleme
+- [ ] Kullanıcı yorumları ve puanlama
+- [ ] E-posta bildirimleri
+- [ ] Admin paneli
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Katkıda Bulunma
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Bu depoyu fork edin
+2. Yeni bir branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
+4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
+5. Pull Request oluşturun
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Lisans
 
-## Deploy on Vercel
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👥 İletişim
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+CotNeo - [@CotNeo](https://github.com/CotNeo)
+
+Proje Linki: [https://github.com/CotNeo/next-js-ecommerce](https://github.com/CotNeo/next-js-ecommerce)
+
+## 🙏 Teşekkürler
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Stripe](https://stripe.com/)
+- [Heroicons](https://heroicons.com/)
