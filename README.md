@@ -1,4 +1,148 @@
-# Next.js E-Ticaret Projesi
+# Next.js E-Commerce Project
+
+This project is designed as a modern and user-friendly e-commerce platform. It is developed using Next.js, React, and Tailwind CSS.
+
+## 🚀 Features
+
+- **User Management**
+  - Registration and login operations
+  - User profile management
+  - Role-based authorization (Customer/Seller)
+
+- **Product Management**
+  - Product listing and detail pages
+  - Category-based filtering
+  - Search functionality
+  - Product images and descriptions
+
+- **Cart Operations**
+  - Add/remove products to cart
+  - Update product quantity
+  - Calculate cart total
+  - Store cart data with LocalStorage
+
+- **Payment Operations**
+  - Stripe integration
+  - Secure payment infrastructure
+  - Order tracking
+  - Payment status update with webhook
+
+- **Design**
+  - Responsive design
+  - Dark/Light theme support
+  - Modern and user-friendly interface
+  - Customizable components with Tailwind CSS
+
+## 🛠️ Technologies
+
+- **Frontend**
+  - Next.js 14
+  - React 18
+  - Tailwind CSS
+  - TypeScript
+  - Heroicons
+
+- **Backend**
+  - Next.js API Routes
+  - Stripe API
+  - LocalStorage
+
+- **Development Tools**
+  - ESLint
+  - Prettier
+  - TypeScript
+  - Git
+
+## 📦 Installation
+
+1. Clone the project:
+   ```bash
+   git clone https://github.com/CotNeo/next-js-ecommerce.git
+   cd next-js-ecommerce
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   ```env
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 🎯 Project Structure
+
+```
+src/
+├── app/
+│   ├── components/     # UI components
+│   ├── context/       # Context APIs
+│   ├── types/         # TypeScript types
+│   ├── utils/         # Helper functions
+│   ├── api/           # API routes
+│   └── pages/         # Page components
+├── public/            # Static files
+└── styles/           # Global styles
+```
+
+## 🔄 Development Status
+
+### Completed Features
+- [x] User interface design
+- [x] Cart operations
+- [x] Payment system integration
+- [x] Responsive design
+- [x] Theme support
+
+### In Progress Features
+- [ ] Product management panel
+- [ ] Order tracking system
+- [ ] Multi-language support
+- [ ] SEO optimization
+
+### Planned Features
+- [ ] Multiple payment methods
+- [ ] Advanced search and filtering
+- [ ] User reviews and ratings
+- [ ] Email notifications
+- [ ] Admin panel
+
+## 🤝 Contributing
+
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 👥 Contact
+
+CotNeo - [@CotNeo](https://github.com/CotNeo)
+
+Project Link: [https://github.com/CotNeo/next-js-ecommerce](https://github.com/CotNeo/next-js-ecommerce)
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Stripe](https://stripe.com/)
+- [Heroicons](https://heroicons.com/)
+
+---
+
+# Next.js E-Ticaret Projesi (Turkish Version)
 
 Bu proje, modern ve kullanıcı dostu bir e-ticaret platformu olarak tasarlanmıştır. Next.js, React ve Tailwind CSS kullanılarak geliştirilmiştir.
 
