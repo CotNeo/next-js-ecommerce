@@ -140,6 +140,34 @@ Project Link: [https://github.com/CotNeo/next-js-ecommerce](https://github.com/C
 - [Stripe](https://stripe.com/)
 - [Heroicons](https://heroicons.com/)
 
+## 🗄️ Database & Prisma
+
+- Uses [Prisma ORM](https://www.prisma.io/) for database modeling and migrations.
+- To initialize Prisma and generate the client:
+  ```bash
+  npx prisma migrate dev --name init
+  npx prisma generate
+  ```
+- Make sure to set your `DATABASE_URL` in the `.env` file.
+
+## 🛡️ Linting & Build Tips
+
+- **Generated files** (like `src/generated/prisma/`) are excluded from linting via `.eslintignore`:
+  ```
+  src/generated/
+  ```
+- If you encounter many `@typescript-eslint/no-unused-expressions` errors from generated files, ensure your `.eslintignore` is present and correct.
+- To build without linting errors (for troubleshooting):
+  ```bash
+  NEXT_DISABLE_ESLINT_PLUGIN=true npm run build
+  ```
+
+## 🛠️ Admin Panel & Mock Data
+
+- The project includes an **Admin Dashboard** for managing products, orders, and messages.
+- Mock data for products, orders, and messages is provided in `src/app/data/` for development and testing.
+- You can extend or replace mock data with real database integration using Prisma.
+
 ---
 
 # Next.js E-Ticaret Projesi (Turkish Version)
@@ -283,3 +311,31 @@ Proje Linki: [https://github.com/CotNeo/next-js-ecommerce](https://github.com/Co
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Stripe](https://stripe.com/)
 - [Heroicons](https://heroicons.com/)
+
+## 🗄️ Database & Prisma
+
+- Uses [Prisma ORM](https://www.prisma.io/) for database modeling and migrations.
+- To initialize Prisma and generate the client:
+  ```bash
+  npx prisma migrate dev --name init
+  npx prisma generate
+  ```
+- Make sure to set your `DATABASE_URL` in the `.env` file.
+
+## 🛡️ Linting & Build Tips
+
+- **Generated files** (like `src/generated/prisma/`) are excluded from linting via `.eslintignore`:
+  ```
+  src/generated/
+  ```
+- If you encounter many `@typescript-eslint/no-unused-expressions` errors from generated files, ensure your `.eslintignore` is present and correct.
+- To build without linting errors (for troubleshooting):
+  ```bash
+  NEXT_DISABLE_ESLINT_PLUGIN=true npm run build
+  ```
+
+## 🛠️ Admin Panel & Mock Data
+
+- The project includes an **Admin Dashboard** for managing products, orders, and messages.
+- Mock data for products, orders, and messages is provided in `src/app/data/` for development and testing.
+- You can extend or replace mock data with real database integration using Prisma.
