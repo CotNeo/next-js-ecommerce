@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from './context/CartContext'
 import { AuthProvider } from './context/AuthContext'
 import { PaymentProvider } from './context/PaymentContext'
+import ClientLayout from './ClientLayout'
 
 /**
  * Geist Sans fontunu yapılandırma
@@ -45,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="tr">
+    <html lang="tr" suppressHydrationWarning>
       {/* 
         Body etiketi içinde:
         - Geist Sans ve Mono fontları CSS değişkenleri olarak tanımlanır
@@ -54,13 +55,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AuthProvider>
-          <CartProvider>
-            <PaymentProvider>
-              {children}
-            </PaymentProvider>
-          </CartProvider>
-        </AuthProvider>
+        <ClientLayout>
+          <AuthProvider>
+            <CartProvider>
+              <PaymentProvider>
+                {children}
+              </PaymentProvider>
+            </CartProvider>
+          </AuthProvider>
+        </ClientLayout>
       </body>
     </html>
   );

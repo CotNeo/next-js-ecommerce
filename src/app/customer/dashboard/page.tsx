@@ -12,6 +12,8 @@ import {
   ClockIcon,
   StarIcon
 } from '@heroicons/react/24/outline'
+import { UserRole } from '@/types'
+import { products as mockProducts } from '../../data/mockData'
 
 interface Order {
   id: string
@@ -43,69 +45,35 @@ export default function CustomerDashboard() {
 
   // Örnek siparişler
   useEffect(() => {
-    console.log('📦 Müşteri siparişleri yükleniyor...')
-    const mockOrders: Order[] = [
+    setOrders([
       {
         id: '1',
         date: '2024-03-15',
         status: 'delivered',
-        total: 299.99,
+        total: mockProducts[0].price * 2 + mockProducts[1].price,
         items: [
-          {
-            id: '1',
-            name: 'Ürün 1',
-            price: 99.99,
-            quantity: 2,
-            image: '/images/product1.jpg'
-          },
-          {
-            id: '2',
-            name: 'Ürün 2',
-            price: 100.01,
-            quantity: 1,
-            image: '/images/product2.jpg'
-          }
+          { id: mockProducts[0].id, name: mockProducts[0].name, price: mockProducts[0].price, quantity: 2, image: mockProducts[0].image },
+          { id: mockProducts[1].id, name: mockProducts[1].name, price: mockProducts[1].price, quantity: 1, image: mockProducts[1].image }
         ]
       },
       {
         id: '2',
         date: '2024-03-10',
         status: 'processing',
-        total: 149.99,
+        total: mockProducts[2].price,
         items: [
-          {
-            id: '3',
-            name: 'Ürün 3',
-            price: 149.99,
-            quantity: 1,
-            image: '/images/product3.jpg'
-          }
+          { id: mockProducts[2].id, name: mockProducts[2].name, price: mockProducts[2].price, quantity: 1, image: mockProducts[2].image }
         ]
       }
-    ]
-    setOrders(mockOrders)
+    ])
   }, [])
 
   // Örnek favoriler
   useEffect(() => {
-    console.log('❤️ Favori ürünler yükleniyor...')
-    const mockFavorites: FavoriteProduct[] = [
-      {
-        id: '1',
-        name: 'Favori Ürün 1',
-        price: 99.99,
-        image: '/images/product1.jpg',
-        rating: 4.5
-      },
-      {
-        id: '2',
-        name: 'Favori Ürün 2',
-        price: 149.99,
-        image: '/images/product2.jpg',
-        rating: 5
-      }
-    ]
-    setFavorites(mockFavorites)
+    setFavorites([
+      { id: mockProducts[0].id, name: mockProducts[0].name, price: mockProducts[0].price, image: mockProducts[0].image, rating: 4.5 },
+      { id: mockProducts[1].id, name: mockProducts[1].name, price: mockProducts[1].price, image: mockProducts[1].image, rating: 5 }
+    ])
   }, [])
 
   const getStatusBadge = (status: Order['status']) => {
@@ -121,13 +89,13 @@ export default function CustomerDashboard() {
 
   // Müşteri değilse ana sayfaya yönlendir
   useEffect(() => {
-    if (user && user.role !== 'customer') {
+    if (user && user.role !== UserRole.CUSTOMER) {
       console.log('⚠️ Yetkisiz erişim, ana sayfaya yönlendiriliyor')
       router.push('/')
     }
   }, [user, router])
 
-  if (!user || user.role !== 'customer') {
+  if (!user || user.role !== UserRole.CUSTOMER) {
     return null
   }
 

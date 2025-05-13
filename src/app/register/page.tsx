@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '../context/AuthContext'
 import Link from 'next/link'
+import { UserRole } from '@/types'
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('')
@@ -17,7 +18,7 @@ export default function RegisterPage() {
     console.log('📝 Register formu gönderiliyor:', { email, name })
     
     try {
-      await register(email, password, name)
+      await register(email, password, name, 'USER' as UserRole)
       console.log('✅ Kayıt başarılı, ana sayfaya yönlendiriliyor')
       router.push('/')
     } catch (err) {

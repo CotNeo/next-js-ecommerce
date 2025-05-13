@@ -17,6 +17,8 @@ import {
   ShoppingBagIcon,
   UserGroupIcon
 } from '@heroicons/react/24/outline'
+import { UserRole } from '@/types'
+import { products as mockProducts } from '../../data/mockData'
 
 interface Product {
   id: string
@@ -45,24 +47,6 @@ export default function SellerDashboard() {
   // Örnek ürünler
   useEffect(() => {
     console.log('📦 Satıcı ürünleri yükleniyor...')
-    const mockProducts: Product[] = [
-      {
-        id: '1',
-        name: 'Ürün 1',
-        price: 99.99,
-        stock: 50,
-        image: '/images/product1.jpg',
-        description: 'Ürün 1 açıklaması'
-      },
-      {
-        id: '2',
-        name: 'Ürün 2',
-        price: 149.99,
-        stock: 30,
-        image: '/images/product2.jpg',
-        description: 'Ürün 2 açıklaması'
-      }
-    ]
     setProducts(mockProducts)
   }, [])
 
@@ -109,13 +93,13 @@ export default function SellerDashboard() {
 
   // Satıcı değilse ana sayfaya yönlendir
   useEffect(() => {
-    if (user && user.role !== 'seller') {
+    if (user && user.role !== UserRole.SELLER) {
       console.log('⚠️ Yetkisiz erişim, ana sayfaya yönlendiriliyor')
       router.push('/')
     }
   }, [user, router])
 
-  if (!user || user.role !== 'seller') {
+  if (!user || user.role !== UserRole.SELLER) {
     return null
   }
 
@@ -220,7 +204,7 @@ export default function SellerDashboard() {
                   Düzenle
                 </Button>
                 <Button
-                  variant="error"
+                  variant="danger"
                   size="sm"
                   leftIcon={<TrashIcon className="w-4 h-4" />}
                   onClick={() => handleDeleteProduct(product.id)}

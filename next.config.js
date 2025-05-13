@@ -11,8 +11,15 @@ const nextConfig = {
   },
   // Resim optimizasyonu için domain ayarları
   images: {
-    domains: ['localhost'],
+    domains: [
+      'store.storeimages.cdn-apple.com',
+      'images.unsplash.com',
+      'plus.unsplash.com',
+      'images.pexels.com'
+    ],
   },
 };
+
+module.exports = nextConfig
 
  

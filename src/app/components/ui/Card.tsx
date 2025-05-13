@@ -1,20 +1,21 @@
 'use client'
 
-import { HTMLAttributes, forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'default' | 'bordered'
   padding?: 'none' | 'sm' | 'md' | 'lg'
+  hover?: boolean
 }
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ children, variant = 'default', padding = 'md', className, ...props }, ref) => {
-    const baseStyles = 'rounded-2xl bg-white dark:bg-neutral-800 shadow-lg transition-all duration-200'
-    
-    const variants = {
+const baseStyles = 'bg-white dark:bg-gray-800 rounded-lg shadow-sm'
+
+const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ className, variant = 'default', padding = 'md', hover = false, ...props }, ref) => {
+    const variantStyles = {
       default: '',
-      bordered: 'border border-neutral-200 dark:border-neutral-700'
+      bordered: 'border border-gray-200 dark:border-gray-700'
     }
 
     const paddings = {
@@ -24,21 +25,24 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       lg: 'p-8'
     }
 
+    const hoverStyles = hover ? 'hover:shadow-lg transition-shadow duration-200' : ''
+
     return (
       <div
         ref={ref}
         className={twMerge(
           baseStyles,
-          variants[variant],
+          variantStyles[variant],
           paddings[padding],
+          hoverStyles,
           className
         )}
         {...props}
-      >
-        {children}
-      </div>
+      />
     )
   }
 )
 
-Card.displayName = 'Card' 
+Card.displayName = 'Card'
+
+export { Card } 

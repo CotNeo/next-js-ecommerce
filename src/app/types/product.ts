@@ -1,27 +1,31 @@
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  image: string;
+  productCount: number;
+}
+
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   description: string;
   price: number;
-  originalPrice?: number;
-  discount?: number;
+  salePrice?: number;
   image: string;
-  category: string;
-  categoryId: number;
+  categoryId: string;
   stock: number;
-  rating: number;
-  reviews: number;
-  features: string[];
-  specifications: Record<string, string>;
-  createdAt: Date;
-  updatedAt: Date;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface ProductFilters {
-  category?: number;
+  category?: string;
   minPrice?: number;
   maxPrice?: number;
-  sortBy?: 'price' | 'rating' | 'newest';
+  sortBy?: 'price-asc' | 'price-desc' | 'name-asc' | 'name-desc';
   sortOrder?: 'asc' | 'desc';
   search?: string;
 }

@@ -1,9 +1,8 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-
-// Kullanıcı tipleri
-export type UserRole = 'customer' | 'seller';
+import { useRouter } from 'next/navigation';
+import { UserRole } from '@/types';
 
 export interface User {
   id: number;

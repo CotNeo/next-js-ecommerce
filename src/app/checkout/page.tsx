@@ -140,14 +140,25 @@ export default function CheckoutPage() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Sepet durumunu kontrol et
-    if (items.length === 0) {
+    const checkCart = async () => {
+      try {
+        const savedCart = localStorage.getItem('cart')
+        const parsedCart = savedCart ? JSON.parse(savedCart) : []
+        
+        if (!Array.isArray(parsedCart) || parsedCart.length === 0) {
       console.log('⚠️ Boş sepet, ana sayfaya yönlendiriliyor')
-      router.push('/')
+          await router.replace('/')
     } else {
       setIsLoading(false)
     }
-  }, [items, router])
+      } catch (error) {
+        console.error('Sepet kontrolü sırasında hata:', error)
+        await router.replace('/')
+      }
+    }
+
+    checkCart()
+  }, [router])
 
   if (isLoading) {
     return (

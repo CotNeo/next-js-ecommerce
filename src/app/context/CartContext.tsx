@@ -19,32 +19,39 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([])
   const [totalItems, setTotalItems] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
+  const [isInitialized, setIsInitialized] = useState(false)
 
   // Sepet durumunu localStorage'dan yükle
   useEffect(() => {
-    const savedCart = localStorage.getItem('cart')
-    if (savedCart) {
-      try {
+    try {
+      const savedCart = localStorage.getItem('cart')
+      if (savedCart) {
         const parsedCart = JSON.parse(savedCart)
-        setItems(parsedCart)
-      } catch (error) {
-        console.error('Sepet yüklenirken hata oluştu:', error)
+        if (Array.isArray(parsedCart) && parsedCart.length > 0) {
+          setItems(parsedCart)
+        }
       }
+    } catch (error) {
+      console.error('Sepet yüklenirken hata oluştu:', error)
+    } finally {
+      setIsInitialized(true)
     }
   }, [])
 
   // Sepet durumunu localStorage'a kaydet
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(items))
-    
-    // Toplam ürün sayısını hesapla
-    const total = items.reduce((sum, item) => sum + item.quantity, 0)
-    setTotalItems(total)
-    
-    // Toplam fiyatı hesapla
-    const price = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-    setTotalPrice(price)
-  }, [items])
+    if (isInitialized) {
+      localStorage.setItem('cart', JSON.stringify(items))
+      
+      // Toplam ürün sayısını hesapla
+      const total = items.reduce((sum, item) => sum + item.quantity, 0)
+      setTotalItems(total)
+      
+      // Toplam fiyatı hesapla
+      const price = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+      setTotalPrice(price)
+    }
+  }, [items, isInitialized])
 
   const addItem = (item: CartItem) => {
     setItems(prevItems => {
