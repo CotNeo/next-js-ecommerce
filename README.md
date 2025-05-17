@@ -25,7 +25,7 @@ Modern ve kullanıcı dostu bir fotoğraf makineleri e-ticaret platformu. Next.j
 
 1. Projeyi klonlayın:
 ```bash
-git clone https://github.com/yourusername/netkadraj.git
+git clone https://github.com/CotNeo/next-js-ecommerce.git
 cd netkadraj
 ```
 
